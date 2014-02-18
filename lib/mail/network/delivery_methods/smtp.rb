@@ -136,6 +136,7 @@ module Mail
         openssl_verify_mode
       else
         context = Net::SMTP.default_ssl_context
+        context.ssl_version = :SSLv3
         context.verify_mode = openssl_verify_mode
         context.ca_path = settings[:ca_path] if settings[:ca_path]
         context.ca_file = settings[:ca_file] if settings[:ca_file]
